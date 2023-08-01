@@ -1,0 +1,28 @@
+name: nightwatch.tests
+on:
+  push:
+    branches: 
+    - main
+jobs:
+  tests: 
+    name: 'nightwatch tests'
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "14.x"
+      - name: Install dependencies
+        run: npm ci
+      - name: Run Nightwatch tests
+        continue-on-error: true
+        run: xvfb-run --auto-servernum npm test -- --env chrome
+      - name: "Publish test results"
+        uses: peaceiris/actions-gh-pages@v3.7.3
+        with: 
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: './tests_output/nightwatch-html-report'
+          keep_files: true
+          user_name: <user-name>
+          user_email: <user-email>
