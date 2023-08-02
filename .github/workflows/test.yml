@@ -27,16 +27,13 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: './tests_output/nightwatch-html-report'
           keep_files: true
-      # - uses: actions/checkout@main
+      # - name: "Publish unlighthouse test results"
+      #   uses: LasyIsLazy/github-upload-action@v0.1.0
       #   with:
-      #     ref: gh-pages
-      - name: "Publish unlighthouse test results"
-        uses: LasyIsLazy/github-upload-action@v0.1.0
-        with:
-          access-token: ${{ secrets.GITHUB_TOKEN }}
-          file-path: .unlighthouse
-          owner: WeissCenter
-          repo: weiss-unit-testing
-          remote-dir: unlighthouse
-          branch-name: gh-pages
+      #     access-token: ${{ secrets.GITHUB_TOKEN }}
+      #     file-path: .unlighthouse
+      #     owner: WeissCenter
+      #     repo: weiss-unit-testing
+      #     remote-dir: unlighthouse
+      #     branch-name: gh-pages
 
