@@ -31,8 +31,12 @@ jobs:
       #   with:
       #     ref: gh-pages
       - name: "Publish unlighthouse test results"
-        uses: actions/upload-artifact@v3
+        uses: LasyIsLazy/github-upload-action@v0.1.0
         with:
-          name: unlighthouseResult
-          path: .unlighthouse
+          access-token: ${{ secrets.ACCESS_TOKEN }}
+          file-path: .unlighthouse
+          owner: WeissCenter
+          repo: weiss-unit-testing
+          remote-dir: unlighthouse
+          branch-name: gh-pages
 
