@@ -14,7 +14,7 @@ jobs:
         with:
           node-version: "18.x"
       - name: Install dependencies
-        run: npm ci
+        run: npm ci && npm install -g @unlighthouse/cli puppeteer
       - name: Run Nightwatch tests
         continue-on-error: true
         run: xvfb-run --auto-servernum npm test -- --env chrome
