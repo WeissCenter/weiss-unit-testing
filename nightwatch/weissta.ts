@@ -2,6 +2,7 @@ import  assert  from "assert";
 import { ELEMENT_KEY } from "nightwatch";
 import { getPageComponents } from "./util/util";
 
+
 const KEY = ELEMENT_KEY ?? 'element-6066-11e4-a52e-4f735466cecf'
 const devRootURL = 'http://localhost:4200/'
 const prodRootURL = 'https://www.weissta.org/'
@@ -15,6 +16,7 @@ describe('WeissTA', function() {
     before(browser => browser.navigateTo(rootURL));
 
     it('Test Title', function(browser) {
+
         browser
           .waitForElementVisible('body')
           .assert.titleContains('Home | Rhonda Weiss Center for Accessible IDEA Data')
@@ -23,7 +25,7 @@ describe('WeissTA', function() {
     it('Test Header', async (browser) => {
     
       browser
-        .waitForElementVisible('body')
+        .waitForElementVisible('.header-top-section')
         .assert.visible('.header-wrapper', 'Verify header is visible')
         .assert.visible('.skip-to-content-link', 'Verify skip link is visible')
         .assert.elementsCount('.header-top-section>nav>ul>li', 5, 'Verify there is 4 links in the header')
@@ -63,12 +65,16 @@ describe('WeissTA', function() {
 
     });
 
-    it('Test Home Page a11y', (browser) => {
+
+
+
+    it('Test Home Page a11y (axe)', (browser) => {
         browser
         .waitForElementVisible('body')
         .axeInject()
         .axeRun('body');
     })
+
 
 
     it('Test About Page Components', async (browser) => {
@@ -92,12 +98,13 @@ describe('WeissTA', function() {
         .assert.titleContains('About Us | Rhonda Weiss Center for Accessible IDEA Data')
     })
 
-    it('Test About Page a11y', (browser) => {
+    it('Test About Page a11y (axe)', (browser) => {
         browser
         .waitForElementVisible('body')
         .axeInject()
         .axeRun('body');
     })
+
 
 
     it('Test Events Page Components', async (browser) => {
@@ -120,3 +127,4 @@ describe('WeissTA', function() {
     after(browser => browser.end());
   });
   
+

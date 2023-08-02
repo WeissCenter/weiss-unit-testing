@@ -16,5 +16,9 @@
     "nightwatch": "^3.0.1",
     "ts-node": "^10.9.1",
     "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "@types/pa11y": "^5.3.5",
+    "pa11y": "^6.2.3"
   }
 }
