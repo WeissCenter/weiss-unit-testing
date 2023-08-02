@@ -27,9 +27,9 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: './tests_output/nightwatch-html-report'
           keep_files: true
-      - uses: actions/checkout@main
-        with:
-          ref: gh-pages
+      # - uses: actions/checkout@main
+      #   with:
+      #     ref: gh-pages
       - name: "Publish unlighthouse test results"
         uses: actions/upload-artifact@v3
         with:
