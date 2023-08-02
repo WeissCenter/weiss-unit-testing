@@ -33,7 +33,7 @@ jobs:
       - name: "Publish unlighthouse test results"
         uses: LasyIsLazy/github-upload-action@v0.1.0
         with:
-          access-token: ${{ secrets.ACCESS_TOKEN }}
+          access-token: ${{ secrets.GITHUB_TOKEN }}
           file-path: .unlighthouse
           owner: WeissCenter
           repo: weiss-unit-testing
