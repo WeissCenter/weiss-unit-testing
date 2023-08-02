@@ -20,7 +20,7 @@ jobs:
         run: xvfb-run --auto-servernum npm test -- --env chrome
       - name: Run unlighthouse tests
         continue-on-error: true
-        run: unlighthouse-ci --site https://qa.weissta.org/ --budget 75 --build-static
+        run: unlighthouse-ci --config-file unlighthouse.config.ts --budget 75 --build-static
       - name: "Publish nightwatch test results"
         uses: peaceiris/actions-gh-pages@v3.7.3
         with: 
